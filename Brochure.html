@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A To Z Exports - Corporate Brochure</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #ffffff;
+      height: 100%;
+      color: #4a4a4a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .brochure-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      min-height: 100%;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    .page {
+      padding: 60px 80px;
+      min-height: 100%;
+      position: relative;
+    }
+
+    .page-divider {
+      height: 3px;
+      background: linear-gradient(to right, transparent, #2d5016, #d97706, #2d5016, transparent);
+      margin: 0;
+    }
+
+    /* Typography */
+    .main-heading {
+      font-size: 48px;
+      font-weight: 700;
+      color: #2d5016;
+      margin: 0 0 15px 0;
+      letter-spacing: 1px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 600;
+      color: #2d5016;
+      margin: 0 0 30px 0;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: #d97706;
+    }
+
+    .tagline {
+      font-size: 20px;
+      color: #d97706;
+      font-style: italic;
+      margin: 0 0 40px 0;
+      font-weight: 500;
+    }
+
+    .body-text {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #4a4a4a;
+      margin: 0 0 30px 0;
+    }
+
+    /* Page 1 Styles */
+    .header-section {
+      text-align: center;
+      margin-bottom: 60px;
+      padding: 40px 0;
+      background: linear-gradient(135deg, #f8f9f5 0%, #ffffff 100%);
+      border-radius: 12px;
+      border: 2px solid #e8f5e8;
+    }
+
+    .logo {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 25px;
+      border-radius: 8px;
+      object-fit: contain;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .intro-section {
+      margin: 50px 0;
+      padding: 40px;
+      background: #fafaf8;
+      border-radius: 8px;
+      border-left: 6px solid #d97706;
+    }
+
+    .products-section {
+      margin: 50px 0;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .product-card {
+      background: white;
+      padding: 35px 25px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      border: 1px solid #e8f5e8;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .product-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .product-name {
+      font-size: 22px;
+      font-weight: 600;
+      color: #2d5016;
+      margin: 0 0 15px 0;
+    }
+
+    .product-desc {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Page 2 Styles */
+    .advantages-section {
+      margin-bottom: 60px;
+    }
+
+    .advantage-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .advantage-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 25px;
+      background: #fafaf8;
+      border-radius: 10px;
+      border: 1px solid #e8f5e8;
+    }
+
+    .advantage-icon {
+      font-size: 32px;
+      color: #d97706;
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+
+    .advantage-content h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #2d5016;
+      margin: 0 0 10px 0;
+    }
+
+    .advantage-content p {
+      font-size: 15px;
+      color: #666;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .process-section {
+      margin-bottom: 60px;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .process-step {
+      text-align: center;
+      padding: 30px 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      border: 1px solid #e8f5e8;
+      position: relative;
+    }
+
+    .process-step:not(:last-child)::after {
+      content: '→';
+      position: absolute;
+      right: -25px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      color: #d97706;
+      font-weight: bold;
+    }
+
+    .step-number {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0 auto 20px;
+      box-shadow: 0 4px 10px rgba(217, 119, 6, 0.3);
+    }
+
+    .step-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #2d5016;
+      margin: 0 0 12px 0;
+    }
+
+    .step-desc {
+      font-size: 14px;
+      color: #666;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .contact-section {
+      background: linear-gradient(135deg, #2d5016 0%, #3d6b1f 100%);
+      padding: 50px 40px;
+      border-radius: 15px;
+      color: white;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(45, 80, 22, 0.3);
+    }
+
+    .contact-section .section-title {
+      color: white;
+      margin-bottom: 35px;
+    }
+
+    .contact-section .section-title::after {
+      background: #d97706;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      margin-top: 30px;
+    }
+
+    .contact-item {
+      text-align: center;
+    }
+
+    .contact-icon {
+      font-size: 36px;
+      color: #d97706;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .contact-label {
+      font-size: 16px;
+      font-weight: 600;
+      color: #e8f5e8;
+      margin: 0 0 8px 0;
+    }
+
+    .contact-text {
+      font-size: 18px;
+      color: white;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .page {
+        padding: 40px 30px;
+      }
+
+      .main-heading {
+        font-size: 36px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .advantage-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-step:not(:last-child)::after {
+        display: none;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="brochure-container"><!-- Page 1 -->
+   <div class="page" id="page1">
+    <div class="header-section"><img class="logo" src="ChatGPT Image Nov 9, 2025, 08_47_38 AM.png" alt="A To Z Exports Logo">
+     <h1 class="main-heading" id="companyName">A To Z Exports</h1>
+     <p class="tagline" id="tagline">Your Global Partner for Premium Agricultural Goods</p>
+    </div>
+    <div class="intro-section">
+     <p class="body-text" id="introText">With over two decades of excellence in agricultural exports, A To Z Exports has established itself as a trusted partner for premium agricultural products worldwide. We specialize in sourcing, processing, and delivering the finest spices, coffee, and pulses that meet international quality standards and exceed customer expectations.</p>
+    </div>
+    <div class="products-section">
+     <h2 class="section-title">Our Premium Product Range</h2>
+     <div class="products-grid">
+      <div class="product-card"><span class="product-icon">🌶️</span>
+       <h3 class="product-name">Premium Spices</h3>
+       <p class="product-desc">Authentic turmeric, cardamom, black pepper, cinnamon, and exotic spice blends sourced from certified organic farms across India.</p>
+      </div>
+      <div class="product-card"><span class="product-icon">☕</span>
+       <h3 class="product-name">Specialty Coffee</h3>
+       <p class="product-desc">Single-origin Arabica and Robusta beans from high-altitude plantations, carefully processed and roasted to perfection.</p>
+      </div>
+      <div class="product-card"><span class="product-icon">🫘</span>
+       <h3 class="product-name">Quality Pulses</h3>
+       <p class="product-desc">Nutritious lentils, chickpeas, kidney beans, and black gram, processed with advanced technology to retain natural goodness.</p>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="page-divider"></div><!-- Page 2 -->
+   <div class="page" id="page2">
+    <div class="advantages-section">
+     <h2 class="section-title" id="advantageTitle">The A To Z Advantage</h2>
+     <div class="advantage-grid">
+      <div class="advantage-item"><span class="advantage-icon">✅</span>
+       <div class="advantage-content">
+        <h3>Quality Assurance</h3>
+        <p>Rigorous quality control with international certifications including ISO, HACCP, and organic standards ensuring premium products.</p>
+       </div>
+      </div>
+      <div class="advantage-item"><span class="advantage-icon">🌍</span>
+       <div class="advantage-content">
+        <h3>Global Reach</h3>
+        <p>Established distribution networks across 45+ countries with reliable logistics and shipping partnerships worldwide.</p>
+       </div>
+      </div>
+      <div class="advantage-item"><span class="advantage-icon">🤝</span>
+       <div class="advantage-content">
+        <h3>Fair Trade Practices</h3>
+        <p>Direct partnerships with farmers ensuring sustainable livelihoods, ethical sourcing, and community development initiatives.</p>
+       </div>
+      </div>
+      <div class="advantage-item"><span class="advantage-icon">📦</span>
+       <div class="advantage-content">
+        <h3>Custom Solutions</h3>
+        <p>Flexible packaging options, private labeling services, and tailored solutions to meet your specific market requirements.</p>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="process-section">
+     <h2 class="section-title" id="processTitle">Our Simple Process</h2>
+     <div class="process-steps">
+      <div class="process-step">
+       <div class="step-number">
+        1
+       </div>
+       <h3 class="step-title">Inquiry</h3>
+       <p class="step-desc">Share your product requirements and we'll provide detailed quotations with specifications</p>
+      </div>
+      <div class="process-step">
+       <div class="step-number">
+        2
+       </div>
+       <h3 class="step-title">Sampling</h3>
+       <p class="step-desc">Review product samples to ensure quality and specifications meet your exact standards</p>
+      </div>
+      <div class="process-step">
+       <div class="step-number">
+        3
+       </div>
+       <h3 class="step-title">Order</h3>
+       <p class="step-desc">Confirm your order with flexible payment terms and production scheduling</p>
+      </div>
+      <div class="process-step">
+       <div class="step-number">
+        4
+       </div>
+       <h3 class="step-title">Delivery</h3>
+       <p class="step-desc">Timely shipment with complete documentation, tracking, and quality certificates</p>
+      </div>
+     </div>
+    </div>
+    <div class="contact-section">
+     <h2 class="section-title" id="contactTitle">Contact Us</h2>
+     <div class="contact-grid">
+      <div class="contact-item"><span class="contact-icon">📧</span>
+       <p class="contact-label">Email</p>
+       <p class="contact-text">atozexports99@gmail.com</p>
+      </div>
+      <div class="contact-item"><span class="contact-icon">📞</span>
+       <p class="contact-label">Phone</p>
+       <p class="contact-text">+91 9370514126</p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script>
+    const defaultConfig = {
+      company_name: "A To Z Exports",
+      tagline: "Your Global Partner for Premium Agricultural Goods",
+      intro_text: "With over two decades of excellence in agricultural exports, A To Z Exports has established itself as a trusted partner for premium agricultural products worldwide. We specialize in sourcing, processing, and delivering the finest spices, coffee, and pulses that meet international quality standards and exceed customer expectations.",
+      advantage_title: "The A To Z Advantage",
+      process_title: "Our Simple Process",
+      contact_title: "Contact Us",
+      background_color: "#ffffff",
+      heading_color: "#2d5016",
+      text_color: "#4a4a4a",
+      accent_color: "#d97706",
+      font_family: "Segoe UI",
+      font_size: 16
+    };
+
+    async function onConfigChange(config) {
+      const customFont = config.font_family || defaultConfig.font_family;
+      const baseFontStack = 'Tahoma, Geneva, Verdana, sans-serif';
+      const baseSize = config.font_size || defaultConfig.font_size;
+
+      // Apply font family
+      document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      
+      // Apply background color
+      document.body.style.background = config.background_color || defaultConfig.background_color;
+      document.querySelector('.brochure-container').style.background = config.background_color || defaultConfig.background_color;
+
+      // Update text content
+      document.getElementById('companyName').textContent = config.company_name || defaultConfig.company_name;
+      document.getElementById('tagline').textContent = config.tagline || defaultConfig.tagline;
+      document.getElementById('introText').textContent = config.intro_text || defaultConfig.intro_text;
+      document.getElementById('advantageTitle').textContent = config.advantage_title || defaultConfig.advantage_title;
+      document.getElementById('processTitle').textContent = config.process_title || defaultConfig.process_title;
+      document.getElementById('contactTitle').textContent = config.contact_title || defaultConfig.contact_title;
+
+      // Apply colors
+      const headingColor = config.heading_color || defaultConfig.heading_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const accentColor = config.accent_color || defaultConfig.accent_color;
+
+      // Apply heading colors
+      document.querySelectorAll('.main-heading, .section-title, .product-name, .advantage-content h3, .step-title').forEach(el => {
+        el.style.color = headingColor;
+      });
+
+      // Apply text colors
+      document.querySelectorAll('.body-text, .product-desc, .advantage-content p, .step-desc').forEach(el => {
+        el.style.color = textColor;
+      });
+
+      // Apply accent colors
+      document.querySelectorAll('.tagline, .advantage-icon, .contact-icon').forEach(el => {
+        el.style.color = accentColor;
+      });
+
+      // Apply accent backgrounds
+      document.querySelectorAll('.step-number').forEach(el => {
+        el.style.background = `linear-gradient(135deg, ${accentColor} 0%, #f59e0b 100%)`;
+      });
+
+      // Update CSS custom properties for pseudo-elements
+      document.documentElement.style.setProperty('--accent-color', accentColor);
+      
+      // Apply font sizes proportionally
+      document.querySelector('.main-heading').style.fontSize = `${baseSize * 3}px`;
+      document.querySelectorAll('.section-title').forEach(el => {
+        el.style.fontSize = `${baseSize * 2}px`;
+      });
+      document.querySelectorAll('.tagline').forEach(el => {
+        el.style.fontSize = `${baseSize * 1.25}px`;
+      });
+      document.querySelectorAll('.body-text').forEach(el => {
+        el.style.fontSize = `${baseSize}px`;
+      });
+      document.querySelectorAll('.product-desc, .advantage-content p').forEach(el => {
+        el.style.fontSize = `${baseSize * 0.9375}px`;
+      });
+    }
+
+    // Add CSS for pseudo-elements
+    const style = document.createElement('style');
+    style.textContent = `
+      .section-title::after {
+        background: var(--accent-color, #d97706) !important;
+      }
+    `;
+    document.head.appendChild(style);
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            {
+              get: () => config.background_color || defaultConfig.background_color,
+              set: (value) => {
+                config.background_color = value;
+                window.elementSdk.setConfig({ background_color: value });
+              }
+            },
+            {
+              get: () => config.heading_color || defaultConfig.heading_color,
+              set: (value) => {
+                config.heading_color = value;
+                window.elementSdk.setConfig({ heading_color: value });
+              }
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (value) => {
+                config.text_color = value;
+                window.elementSdk.setConfig({ text_color: value });
+              }
+            },
+            {
+              get: () => config.accent_color || defaultConfig.accent_color,
+              set: (value) => {
+                config.accent_color = value;
+                window.elementSdk.setConfig({ accent_color: value });
+              }
+            }
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => config.font_family || defaultConfig.font_family,
+            set: (value) => {
+              config.font_family = value;
+              window.elementSdk.setConfig({ font_family: value });
+            }
+          },
+          fontSizeable: {
+            get: () => config.font_size || defaultConfig.font_size,
+            set: (value) => {
+              config.font_size = value;
+              window.elementSdk.setConfig({ font_size: value });
+            }
+          }
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ["company_name", config.company_name || defaultConfig.company_name],
+          ["tagline", config.tagline || defaultConfig.tagline],
+          ["intro_text", config.intro_text || defaultConfig.intro_text],
+          ["advantage_title", config.advantage_title || defaultConfig.advantage_title],
+          ["process_title", config.process_title || defaultConfig.process_title],
+          ["contact_title", config.contact_title || defaultConfig.contact_title]
+        ])
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99bae8ad91748ef4',t:'MTc2MjY2NjEzMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
